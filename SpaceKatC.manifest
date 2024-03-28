@@ -1,0 +1,15 @@
+{
+	"autodeskProduct":	"Fusion360",
+	"type":	"addin",
+	"author":	"",
+	"description":	{
+		"":	""
+	},
+	"supportedOS":	"windows|mac",
+	"editEnabled":	true,
+	"id":	"c1141f38-6adf-49d5-8f6b-c2263350d11c",
+	"version":	"",
+	"runOnStartup":	false,
+	"sourcewindows":	"SpaceKatC.vcxproj",
+	"sourcemac":	"SpaceKatC.xcodeproj"
+}
