@@ -6,6 +6,9 @@ global SpaceKatDriver
 bStarted = False
 
 image = PIL.Image.open("icon.png")
+strLogFile = "SpaceKat.log"
+logFile = open(strLogFile, "w", encoding="utf-8")
+
 
 def on_clicked(icon, item):
     print ("Hello")
@@ -14,7 +17,7 @@ def miStartDriver(icon, item):
     global SpaceKatDriver
     global bStarted
     if not bStarted:
-        SpaceKatDriver = subprocess.Popen(['python', 'SpaceKat Driver.py'])
+        SpaceKatDriver = subprocess.Popen('python "SpaceKat Driver.py"', stdout=logFile)
         bStarted = True
         print ("Start Driver")
     else:
@@ -38,6 +41,7 @@ def miExit(icon, item):
         print ("SpaceKat Driver is running, please stop the driver first.")
     else:
         print ("Exit")
+        logFile.close()
         icon.stop()
 
 icon = pystray.Icon("SpaceKat", image, menu=pystray.Menu(
