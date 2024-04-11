@@ -277,7 +277,8 @@ LoadConfig()
 
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("blue")
-image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "test_images")
+# image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "test_images")
+image_path = os.path.dirname(os.path.realpath(__file__))
 button_fg_color = ('#3B8ED0', '#1F6AA5')
 button_hover_color = ('#36719F', '#2896F0')
 
