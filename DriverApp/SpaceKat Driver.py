@@ -18,12 +18,14 @@ preTimeStamp = 0
 curTimeStamp = 0
 configString = ""
 bConfigChanged = False
+COMPort = "COM7"
 
 def LoadConfig():
     global configuration
     global configString
     global bConfigChanged
     global curTimeStamp
+    global COMPort
 
     if os.path.exists(configFile):
         print(configFile)
@@ -33,7 +35,7 @@ def LoadConfig():
             bConfigChanged = True
             curTimeStamp = configuration['TimeStamp']
             print ("Configure changed.")
-            comPort = configuration['Basic']['COMPort']
+            COMPort = configuration['Basic']['COMPort']
             tcpPort = configuration['Basic']['TCPPort']
             panZoomEnabled = configuration['Basic']['PanZoomEnabled']
             rotationEnabled = configuration['Basic']['RotationEnabled']
@@ -74,7 +76,7 @@ def LoadConfig():
             yawSpeed = configuration['Speed']['YawSpeed']
             yawReverse= configuration['Speed']['YawReverse']
 
-            configString = f"{comPort},{tcpPort},{panZoomEnabled},{rotationEnabled},{dominantEnabled},{lockHorizonEnabled},{zoomUsing},{naviMode},{displayPivot},{useSelectObject},"+\
+            configString = f"{COMPort},{tcpPort},{panZoomEnabled},{rotationEnabled},{dominantEnabled},{lockHorizonEnabled},{zoomUsing},{naviMode},{displayPivot},{useSelectObject},"+\
                 f"{panLREnabled},{panLRThreshold},{panLRSpeed},{panLRReverse},{panFBEnabled},{panFBThreshold},{panFBSpeed},{panFBReverse},{panUDEnabled},{panUDThreshold},{panUDSpeed},{panUDReverse},"+\
                     f"{pitchEnabled},{pitchThreshold},{pitchSpeed},{pitchReverse},{rollEnabled},{rollThreshold},{rollSpeed},{rollReverse},{yawEnabled},{yawThreshold},{yawSpeed},{yawReverse}"
             print (configString)
@@ -89,7 +91,7 @@ bConfigLoaded = LoadConfig()
 
 
 bSerialConnected = False
-COMPort = 'COM7'
+#COMPort = 'COM6'
 
 clientSocket = []
 clientSocketTimeout = []
